@@ -1,7 +1,8 @@
-name: Symfony dev env (PHP, Nginx, MySQL)
-hosts: all
-gather_facts: no
-sudo: yes
+---
+- name: Symfony dev env (PHP, Nginx, MySQL)
+  hosts: all
+  gather_facts: no
+  sudo: yes
 
-roles:
-        - common
+  roles:
+    - common
