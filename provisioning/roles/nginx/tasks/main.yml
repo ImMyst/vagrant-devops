@@ -1,22 +1,39 @@
----
-- name: install python 2
-  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+# provisioning/roles/nginx/tasks/main.yaml
+- name: Install nginx
+  apt:
+    pkg: nginx
+    state: latest
   tags:
-    - common
+    - nginx
 
-- name: update the apt cache
-  apt: update_cache=yes
+- name: Create nginx main configuration
+  template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx
   tags:
-    - common
+    - nginx
 
-- name: Install packages
-  apt: pkg={{item}} state=latest
-  with_items:
-    - curl
-    - python-pip
-    - python-setuptools
-    - unzip
-    - vim
-    - virtualenv # Python virtual environment creator
+- name: Create symfony nginx configuration
+  template:
+    src: application.conf
+    dest: /etc/nginx/sites-available/application.conf
+  notify: restart nginx
   tags:
-    - common
+    - nginx
+
+- name: Delete default nginx configuration
+  file:
+    name: /etc/nginx/sites-enabled/default
+    state: absent
+  tags:
+    - nginx
+
+- name: Create link for nginx configuration
+  file:
+    src: /etc/nginx/sites-available/application.conf
+    dest: /etc/nginx/sites-enabled/application.conf
+    state: link
+  notify: restart nginx
+  tags:
+    - nginx
