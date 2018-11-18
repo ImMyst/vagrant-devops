@@ -1,2 +1,7 @@
 # group_vars/all
 ---
+database_name: application
+database_user: app_user
+database_password: s3cr3t
+application_folder: application
+

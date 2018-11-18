@@ -1,3 +1,4 @@
+# provisioning/playbook
 ---
 - name: Symfony dev env (PHP, Nginx, MySQL)
   hosts: all
@@ -5,5 +6,6 @@
   sudo: yes
 
   roles:
+    # we'll start with this role to install default packets on the machine
     - common
     - php-fpm
