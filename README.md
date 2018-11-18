@@ -6,7 +6,8 @@ Les principales difficultés que nous avons recontrées étaient liées à notre
 
 ## Avancement
 
-Nous nous sommes arrêté à l'installation de `mysql-server`. Nous continuerons donc la prochaine fois ou même avant pour se mettre à jour et pouvoir reprendre dans de bonnes conditions.
+Nous sommes arrivés à la fin du TP (fin des slides).
+L'application Symfony reste cependant encore à tester.
 
 Fait avec :heart: par :
 
