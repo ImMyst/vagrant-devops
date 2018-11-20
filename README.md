@@ -7,7 +7,6 @@ Les principales difficultés que nous avons recontrées étaient liées à notre
 ## Avancement
 
 Nous sommes arrivés à la fin du TP (fin des slides).
-L'application Symfony reste cependant encore à tester.
 
 Fait avec :heart: par :
 
